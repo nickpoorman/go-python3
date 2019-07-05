@@ -65,6 +65,10 @@ int _go_PyByteArray_CheckExact(PyObject *o) {
     return PyByteArray_CheckExact(o);
 }
 
+Py_ssize_t _gopy_PyByteArray_GET_SIZE(PyObject *bytearray) {
+	return PyByteArray_GET_SIZE(bytearray);
+}
+
 int _go_PyUnicode_Check(PyObject *o) {
     return PyUnicode_Check(o);
 }

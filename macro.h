@@ -33,6 +33,8 @@ int _go_PyBytes_CheckExact(PyObject *o);
 int _go_PyByteArray_Check(PyObject *o);
 int _go_PyByteArray_CheckExact(PyObject *o);
 
+Py_ssize_t _gopy_PyByteArray_GET_SIZE(PyObject *bytearray);
+
 int _go_PyUnicode_Check(PyObject *o);
 int _go_PyUnicode_CheckExact(PyObject *o);
 

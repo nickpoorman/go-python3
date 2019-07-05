@@ -55,6 +55,13 @@ func PyByteArray_AsString(o *PyObject) string {
 	return C.GoString(C.PyByteArray_AsString(toc(o)))
 }
 
+// PyByteArray_AsBytes returns the contents of bytearray as []bytes
+func PyByteArray_AsBytes(self *PyObject) []byte {
+	length := C._gopy_PyByteArray_GET_SIZE(toc(self))
+	c_str := C.PyByteArray_AsString(toc(self))
+	return C.GoBytes(unsafe.Pointer(c_str), C.int(length))
+}
+
 //PyByteArray_Resize : https://docs.python.org/3/c-api/bytearray.html#c.PyByteArray_Resize
 func PyByteArray_Resize(bytearray *PyObject, len int) {
 	C.PyByteArray_Resize(toc(bytearray), C.Py_ssize_t(len))
